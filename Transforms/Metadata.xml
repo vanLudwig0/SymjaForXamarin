@@ -1,0 +1,858 @@
+﻿<metadata>
+	<remove-node path="/api/package[@name!='org.matheclipse.core.interfaces' and @name!='org.matheclipse.core.expression' and @name!='org.matheclipse.core.eval']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name!='F']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.eval']/class[@name!='EvalEngine']"/>
+
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name='IEvalStepListener']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/class[@name='IExprImpl']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface/implements[not(starts-with(@name,'org.matheclipse.core.interfaces'))]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface/method[parameter[not(starts-with(@type, 'org.matheclipse.core.interfaces') or @type='java.math.BigInteger' or @type='boolean' or @type='boolean[]' or @type='double' or @type='double[]' or @type='int' or @type='int[]' or @type='long' or @type='long[]')]]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface/method[not(starts-with(@return,'org.matheclipse.core.interfaces') or @return='java.math.BigInteger' or @return='boolean' or @return='boolean[]' or @return='double' or @return='double[]' or @return='int' or @return='int[]' or @return='long' or @return='long[]' or @return='void')]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface/method[starts-with(@name, '$')]"/>
+	<attr path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name='IExpr']/method[@abstract='false']" name="abstract">true</attr>
+	
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='abs' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='ceilFraction' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='conjugate' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='floorFraction' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='fractionalPart' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='im' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='inverse' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='multiply' and count(parameter)=1 and parameter[@type='int']]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='negate' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='normalize' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='opposite' and count(parameter)=0]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='pow' and count(parameter)=1 and parameter[@type='long']]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.interfaces']/interface[@name!='IExpr']/method[@name='re' and count(parameter)=0]"/>
+
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/method[starts-with(@name, '$')]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[starts-with(@name, '$')]"/>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='F_']" name="managedName">F_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='G_']" name="managedName">G_</attr>
+
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='a']" name="managedName">a</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='b']" name="managedName">b</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='c']" name="managedName">c</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='d']" name="managedName">d</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='e']" name="managedName">e</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='f']" name="managedName">f</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='g']" name="managedName">g</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='h']" name="managedName">h</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='i']" name="managedName">i</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='j']" name="managedName">j</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='k']" name="managedName">k</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='l']" name="managedName">l</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='m']" name="managedName">m</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='n']" name="managedName">n</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='o']" name="managedName">o</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='p']" name="managedName">p</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='q']" name="managedName">q</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='r']" name="managedName">r</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='s']" name="managedName">s</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='t']" name="managedName">t</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='u']" name="managedName">u</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='v']" name="managedName">v</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='w']" name="managedName">w</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='x']" name="managedName">x</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='y']" name="managedName">y</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='z']" name="managedName">z</attr>
+
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='a_']" name="managedName">a_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='b_']" name="managedName">b_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='c_']" name="managedName">c_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='d_']" name="managedName">d_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='e_']" name="managedName">e_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='f_']" name="managedName">f_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='g_']" name="managedName">g_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='h_']" name="managedName">h_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='i_']" name="managedName">i_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='j_']" name="managedName">j_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='k_']" name="managedName">k_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='l_']" name="managedName">l_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='m_']" name="managedName">m_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='n_']" name="managedName">n_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='o_']" name="managedName">o_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='p_']" name="managedName">p_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='q_']" name="managedName">q_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='r_']" name="managedName">r_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='s_']" name="managedName">s_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='t_']" name="managedName">t_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='u_']" name="managedName">u_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='v_']" name="managedName">v_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='w_']" name="managedName">w_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='x_']" name="managedName">x_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='y_']" name="managedName">y_</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='z_']" name="managedName">z_</attr>
+
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/method[@name='$s']" name="managedName">CreateSymbol</attr>
+	<attr path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/method[@name='$str']" name="managedName">CreateString</attr>
+
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Abort' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Abs' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AbsArg' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Accumulate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AddTo' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AlgebraicNumber' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Algebraics' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='All' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AllTrue' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Alternatives' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='And' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AngleVector' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Annuity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AnnuityDue' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AntiSymmetric' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AntihermitianMatrixQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AntisymmetricMatrixQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AnyTrue' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Apart' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AppellF1' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Append' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AppendTo' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Apply' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcCos' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcCosh' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcCot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcCoth' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcCsc' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcCsch' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcSec' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcSech' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcSin' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcSinh' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcTan' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArcTanh' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Arg' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArithmeticGeometricMean' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Array' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArrayDepth' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArrayPad' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArrayQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ArrayReshape' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Arrays' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Assumptions' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AtomQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Attributes' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Automatic' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Axes' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AxesOrigin' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='AxesStyle' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Background' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Begin' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BeginPackage' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BellB' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BellY' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BernoulliB' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BernoulliDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BesselI' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BesselJ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BesselK' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BesselY' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Beta' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BetaRegularized' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BinCounts' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Binomial' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BinomialDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BitLength' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Blank' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BlankNullSequence' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BlankSequence' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Block' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Boole' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BooleanConvert' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BooleanMinimize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BooleanQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BooleanTable' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BooleanVariables' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='BrayCurtisDistance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Break' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CDF' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CanberraDistance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Cancel' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CarmichaelLambda' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CartesianProduct' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Cases' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Catalan' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CatalanNumber' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Catch' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Catenate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Ceiling' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CentralMoment' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CharacterEncoding' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CharacteristicPolynomial' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ChebyshevT' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ChebyshevU' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ChessboardDistance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ChiSquareDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ChineseRemainder' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CholeskyDecomposition' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Chop' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CirclePoints' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Clear' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ClearAll' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ClearAttributes' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Clip' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Coefficient' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CoefficientList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CoefficientRules' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Collect' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Colon' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Commonest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CompatibleUnitQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Compile' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Complement' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Complex' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ComplexExpand' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ComplexityFunction' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ComposeList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ComposeSeries' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Composition' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CompoundExpression' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Condition' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ConditionalExpression' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Conjugate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ConjugateTranspose' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Constant' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ConstantArray' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Continue' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ContinuedFraction' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Convergents' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ConvexHullMesh' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CoprimeQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Correlation' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Cos' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CosIntegral' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Cosh' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CoshIntegral' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CosineDistance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Cot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Coth' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Count' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Covariance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Cross' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Csc' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Csch' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='CubeRoot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Curl' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Cyclotomic' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='D' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DSolve' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Decrement' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Default' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Defer' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Definition' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Delete' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DeleteCases' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DeleteDuplicates' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Denominator' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Depth' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Derivative' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DesignMatrix' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Det' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Diagonal' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DiagonalMatrix' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DiceDissimilarity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Differences' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DigitQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Dimensions' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DiracDelta' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DirectedInfinity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Direction' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DiscreteDelta' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DiscreteUniformDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Discriminant' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Disputed' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Distribute' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Distributed' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Div' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Divide' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DivideBy' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Divisible' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='DivisorSigma' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Divisors' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Do' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Dot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Drop' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EasterSunday' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EffectiveInterest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Eigenvalues' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Eigenvectors' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Element' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ElementData' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Eliminate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EllipticE' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EllipticF' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EllipticK' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EllipticPi' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='End' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EndPackage' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Equal' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Equivalent' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Erf' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Erfc' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Erfi' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ErlangDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EuclideanDistance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EulerE' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EulerPhi' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Evaluate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='EvenQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ExactNumberQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Except' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Exists' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Exp' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ExpIntegralE' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ExpIntegralEi' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ExpToTrig' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Expand' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ExpandAll' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Expectation' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Exponent' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ExponentialDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Export' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ExtendedGCD' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Extract' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FRatioDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Factor' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FactorInteger' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FactorSquareFree' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FactorSquareFreeList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FactorTerms' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Factorial' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Factorial2' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FALSE' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Fibonacci' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FindFit' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FindInstance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FindRoot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='First' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Fit' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FiveNum' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FixedPoint' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FixedPointList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Flat' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Flatten' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FlattenAt' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Floor' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Fold' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FoldList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='For' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ForAll' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FourierMatrix' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FractionalPart' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FrechetDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FreeQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FresnelC' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FresnelS' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FrobeniusNumber' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FrobeniusSolve' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FromCharacterCode' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FromContinuedFraction' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FromDigits' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FromPolarCoordinates' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FullForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FullSimplify' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Function' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='FunctionExpand' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GCD' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Gamma' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GammaDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GammaRegularized' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Gather' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GegenbauerC' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GeometricDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GeometricMean' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Get' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Glaisher' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GoldenRatio' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Grad' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Graphics' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Graphics3D' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Greater' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GreaterEqual' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GroebnerBasis' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='GumbelDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HarmonicNumber' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Haversine' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Head' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HeavisideTheta' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HermiteH' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HermitianMatrixQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HilbertMatrix' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Hold' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HoldAll' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HoldFirst' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HoldForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HoldPattern' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HoldRest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Horner' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HornerForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HurwitzZeta' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Hypergeometric0F1' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Hypergeometric1F1' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Hypergeometric2F1' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HypergeometricDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HypergeometricPFQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='HypergeometricPFQRegularized' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Identity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='IdentityMatrix' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='If' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Im' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Implies' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Import' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Increment' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Indeterminate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Inequality' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InexactNumberQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Infinity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Information' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Inner' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InputForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Insert' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Integer' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='IntegerDigits' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='IntegerExponent' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='IntegerLength' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='IntegerPart' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='IntegerPartitions' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='IntegerQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Integrate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InterpolatingFunction' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InterpolatingPolynomial' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Interpolation' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Intersection' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Interval' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Inverse' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InverseBetaRegularized' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InverseErf' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InverseErfc' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InverseFunction' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InverseGammaRegularized' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InverseHaversine' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InverseLaplaceTransform' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='InverseSeries' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='JaccardDissimilarity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='JacobiMatrix' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='JacobiSymbol' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='JacobiZeta' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='JavaForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Join' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='KOrderlessPartitions' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='KPartitions' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Khinchin' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='KnownUnitQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='KolmogorovSmirnovTest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='KroneckerDelta' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Kurtosis' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LCM' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LUDecomposition' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LaguerreL' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LaplaceTransform' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Last' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LeafCount' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LeastSquares' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LegendreP' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LegendreQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Length' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Less' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LessEqual' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LetterQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Level' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LevelQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Limit' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Line' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LinearModelFit' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LinearProgramming' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LinearRecurrence' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LinearSolve' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LiouvilleLambda' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='List' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ListConvolve' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ListCorrelate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ListQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Listable' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Literal' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Log' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Log10' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Log2' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LogGamma' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LogIntegral' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LogNormalDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LogicalExpand' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LogisticSigmoid' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LowerCaseQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LowerTriangularize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='LucasL' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MachineNumberQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MangoldtLambda' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ManhattanDistance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MantissaExponent' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Map' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MapAll' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MapAt' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MapIndexed' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MapThread' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MatchQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MatchingDissimilarity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MathMLForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MatrixForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MatrixMinimalPolynomial' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MatrixPower' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MatrixQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MatrixRank' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Max' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MaxIterations' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MaxPoints' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Mean' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MeanDeviation' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Median' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MeijerG' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MemberQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MersennePrimeExponent' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MersennePrimeExponentQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MeshRange' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MessageName' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Method' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Min' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MinimalPolynomial' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Minus' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Missing' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MissingQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Mod' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Module' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Modulus' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MoebiusMu' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MonomialList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Most' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Multinomial' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='MultiplicativeOrder' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='N' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NDSolve' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NFourierTransform' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NHoldAll' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NHoldFirst' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NHoldRest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NIntegrate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NMaximize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NMinimize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NRoots' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NSolve' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NakagamiDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Names' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Nand' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Nearest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Negative' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Nest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NestList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NestWhile' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NestWhileList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NextPrime' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NonCommutativeMultiply' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NonNegative' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NonPositive' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='None' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NoneTrue' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Nonexistent' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Nor' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Norm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Normal' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NormalDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Normalize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Not' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NotApplicable' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NotAvailable' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NotElement' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NotListQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Null' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NullSpace' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NumberFieldRootsOfUnity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NumberQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Numerator' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NumericFunction' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='NumericQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='O' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='OddQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='OneIdentity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Operate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='OptimizeExpression' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Optional' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Options' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Or' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Order' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='OrderedQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Ordering' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Orderless' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='OrthogonalMatrixQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Orthogonalize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Out' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Outer' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='OutputForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PDF' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Package' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PadLeft' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PadRight' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ParametricPlot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Part' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Partition' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PartitionsP' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PartitionsQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Pattern' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PatternTest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PerfectNumber' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PerfectNumberQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Permutations' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Piecewise' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Plot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Plot3D' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PlotRange' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Plus' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Pochhammer' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Point' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PoissonDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolyGamma' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolyLog' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Polygon' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolynomialExtendedGCD' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolynomialGCD' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolynomialLCM' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolynomialQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolynomialQuotient' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolynomialQuotientRemainder' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PolynomialRemainder' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Position' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Positive' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PossibleZeroQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Power' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PowerExpand' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PowerMod' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PreDecrement' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PreIncrement' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrePlus' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Precision' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrecisionGoal' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Prepend' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrependTo' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Prime' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrimeOmega' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrimePi' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrimePowerQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrimeQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Primes' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrimitiveRoot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PrimitiveRootList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Print' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Probability' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Product' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ProductLog' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Projection' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='PseudoInverse' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Put' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='QRDecomposition' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Quantile' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Quantity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='QuantityDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='QuantityMagnitude' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='QuantityQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Quiet' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Quit' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Quotient' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='QuotientRemainder' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RandomChoice' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RandomInteger' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RandomReal' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RandomSample' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RandomVariate' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Range' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Rational' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Rationalize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Rationals' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Re' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Real' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RealNumberQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Reals' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Reap' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Rectangle' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Reduce' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Refine' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Repeated' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RepeatedNull' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Replace' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ReplaceAll' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ReplaceList' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ReplacePart' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ReplaceRepeated' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Rescale' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Rest' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Resultant' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Return' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Reverse' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Riffle' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RogersTanimotoDissimilarity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Root' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RootIntervals' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RootOf' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Roots' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RotateLeft' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RotateRight' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Round' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RowReduce' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Rule' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RuleDelayed' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='RussellRaoDissimilarity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SameQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SatisfiabilityCount' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SatisfiabilityInstances' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SatisfiableQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Scan' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sec' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sech' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Second' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Select' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sequence' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Series' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SeriesCoefficient' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SeriesData' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Set' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SetAttributes' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SetDelayed' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Share' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Show' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sign' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SignCmp' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Simplify' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sin' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SinIntegral' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sinc' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SingularValueDecomposition' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sinh' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SinhIntegral' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Skewness' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Slot' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SlotSequence' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SokalSneathDissimilarity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Solve' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sort' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sow' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Span' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Split' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SplitBy' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sqrt' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SquareFreeQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SquareMatrixQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SquaredEuclideanDistance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StandardDeviation' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StandardForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Standardize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StieltjesGamma' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StirlingS1' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StirlingS2' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='String' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StringDrop' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StringJoin' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StringLength' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StringTake' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StruveH' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StruveL' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='StudentTDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Subdivide' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Subfactorial' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Subscript' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Subsets' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Subsuperscript' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Subtract' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SubtractFrom' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Sum' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Superscript' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Surd' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SurfaceGraphics' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Switch' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Symbol' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SymbolName' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SymbolQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Symmetric' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SymmetricMatrixQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SyntaxLength' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='SyntaxQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Table' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TableForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Take' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Tally' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Tan' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Tanh' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TautologyQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Taylor' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TeXForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TensorDimensions' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TensorProduct' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TensorRank' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TensorSymmetry' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Thread' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Through' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Throw' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TimeConstrained' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TimeValue' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Times' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TimesBy' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Timing' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ToCharacterCode' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ToPolarCoordinates' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ToRadicals' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ToString' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ToUnicode' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ToeplitzMatrix' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Together' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TooLarge' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Total' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Tr' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Trace' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TraditionalForm' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Transpose' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Trig' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TrigExpand' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TrigReduce' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TrigToExp' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TRUE' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='TrueQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Tuples' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Undefined' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Unequal' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Unevaluated' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UniformDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Union' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Unique' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UnitConvert' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UnitStep' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UnitVector' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UnitaryMatrixQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Unitize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Unknown' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UnsameQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Unset' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UpSet' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UpSetDelayed' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UpperCaseQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='UpperTriangularize' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ValueQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='VandermondeMatrix' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Variable' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Variables' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Variance' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='VectorAngle' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='VectorQ' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='WeibullDistribution' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Which' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='While' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='White' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='With' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Xor' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='YuleDissimilarity' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='ZeroSymmetric' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/field[@name='Zeta' and @type='org.matheclipse.core.interfaces.IBuiltInSymbol']"/>
+
+	<remove-node path="/api/package[@name='org.matheclipse.core.expression']/class[@name='F']/method[@name='show' and count(parameter)=1 and parameter[1][@type='org.matheclipse.core.interfaces.IExpr']]"/>
+	
+	<remove-node path="/api/package[@name='org.matheclipse.core.eval']/class[@name='EvalEngine']/method[parameter[not(starts-with(@type, 'org.matheclipse.core.interfaces') or @type='boolean' or @type='boolean[]' or @type='double' or @type='double[]' or @type='int' or @type='int[]' or @type='long' or @type='long[]' or @type='java.lang.String' or @type='java.lang.String[]')]]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.eval']/class[@name='EvalEngine']/method[not(starts-with(@return,'org.matheclipse.core.interfaces') or @return='boolean' or @return='boolean[]' or @return='double' or @return='double[]' or @return='int' or @return='int&#x5b;&#x5d;' or @return='long' or @return='long[]' or @return='java.lang.String' or @return='java.lang.String[]' or @return='void' or @return='org.matheclipse.core.eval.EvalEngine')]"/>
+	<remove-node path="/api/package[@name='org.matheclipse.core.eval']/class[@name='EvalEngine']/field[not(starts-with(@type, 'org.matheclipse.core.interfaces') or @type='boolean' or @type='boolean[]' or @type='double' or @type='double[]' or @type='int' or @type='int[]' or @type='long' or @type='long[]' or @type='java.lang.String' or @type='java.lang.String[]')]"/>
+</metadata>
